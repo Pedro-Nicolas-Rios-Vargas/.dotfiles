@@ -1,4 +1,5 @@
 vim.g.material_style = 'deep ocean'
+
 require'lualine'.setup {
     options = {
         theme = 'material-nvim'
@@ -6,28 +7,33 @@ require'lualine'.setup {
 }
 
 require("material").setup {
-    contrast = false,
-    borders = false,
-
-    popup_menu = "dark",
-
+    contrast = {
+        sidebars = true,
+        floating_windows = true,
+        line_numbers = true,
+        sign_column = true,
+        popup_menu = true,
+        cursor_line = true,
+        non_current_windows = true,
+    },
     italics = {
-        comments = false,
+        comments = true,
+        strings = false,
         keywords = false,
         functions = false,
-        strings = false,
         variables = false
     },
-    contrast_windows = {
+    contrast_filetypes = {
         "terminal",
         "packer",
         "qf"
     },
-    text_contrast = {
+    high_visibility = {
         lighter = false,
         darker = false
     },
     disable = {
+        borders = false,
         background = false,
         term_colors = false,
         eob_lines = false

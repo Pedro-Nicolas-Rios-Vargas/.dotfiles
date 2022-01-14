@@ -1,5 +1,4 @@
-local inoremap = vim.keymap.inoremap
-local nnoremap = vim.keymap.nnoremap
+local mapper = vim.keymap.set
 
 local has_lsp, nvim_lsp = pcall(require, "lspconfig")
 if not has_lsp then
@@ -29,33 +28,23 @@ local filetype_attach = setmetatable({
     end,
 })
 
-local buf_nnoremap = function(opts)
-    opts.buffer = 0
-    nnoremap(opts)
-end
-
-local buf_inoremap = function(opts)
-    opts.buffer = 0
-    inoremap(opts)
-end
-
 local custom_attach = function(client)
     local filetype = vim.api.nvim_buf_get_option(0, "filetype")
 
-    buf_inoremap { "<c-s>", vim.lsp.buf.signature_help }
+    mapper('i', '<c-s>', vim.lsp.buf.signature_help)
 
-    buf_nnoremap { "gd", vim.lsp.buf.definition }
-    buf_nnoremap { "gD", vim.lsp.buf.declaration }
-    buf_nnoremap { "gi", vim.lsp.buf.implementation }
-    buf_nnoremap { "<C-k>", vim.lsp.buf.signature_help }
-    buf_nnoremap { "<leader>D", vim.lsp.buf.type_definition }
-    buf_nnoremap { "<leader>rn", vim.lsp.buf.rename }
-    buf_nnoremap { "<leader>ca", vim.lsp.buf.code_action }
-    buf_nnoremap { "gr", vim.lsp.buf.references }
-    buf_nnoremap { "<leader>f", vim.lsp.buf.formatting }
+    mapper('n', 'gd', vim.lsp.buf.definition)
+    mapper('n', 'gD', vim.lsp.buf.declaration)
+    mapper('n', '<gi>', vim.lsp.buf.implementation)
+    mapper('n', '<C-k>', vim.lsp.buf.signature_help)
+    mapper('n', '<leader>D', vim.lsp.buf.type_definition)
+    mapper('n', '<leader>rn', vim.lsp.buf.rename)
+    mapper('n', '<leader>ca', vim.lsp.buf.code_action)
+    mapper('n', 'gr', vim.lsp.buf.references)
+    mapper('n', '<leader>f', vim.lsp.buf.formatting)
 
     if filetype ~= "lua" then
-        buf_nnoremap { "K", vim.lsp.buf.hover }
+        mapper('n', 'K', vim.lsp.buf.hover)
     end
 
     vim.bo.omnifunc = "v:lua.vim.lsp.omnifunc"

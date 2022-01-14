@@ -71,7 +71,8 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'kyazdani42/nvim-web-devicons'
 " }}}
 
-Plug 'tjdevries/astronauta.nvim'
+" Plug for remap with lua, now using vim.keymap
+" Plug 'tjdevries/astronauta.nvim'
 
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
 

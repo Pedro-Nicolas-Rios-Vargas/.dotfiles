@@ -1,4 +1,4 @@
-local nnoremap = vim.keymap.nnoremap
+local mapper = vim.keymap.set
 
 local has_telescope, telescope = pcall(require, "telescope")
 if not has_telescope then
@@ -51,10 +51,10 @@ telescope.setup{
     }
 }
 
-nnoremap { "<leader>bf", '<cmd>Telescope buffers<CR>' }
-nnoremap { "<leader>ff", '<cmd>Telescope find_files<CR>' }
-nnoremap { "<leader>gf", '<cmd>Telescope git_files<CR>' }
-nnoremap { "<leader>fb", '<cmd>Telescope file_browser<CR>' }
-nnoremap { "<leader>fh", '<cmd>Telescope help_tags<CR>' }
-nnoremap { "<leader>fr", '<cmd>Telescope grep_string<CR>' }
-nnoremap { "<leader>fc", '<cmd>Telescope colorscheme<CR>' }
+mapper('n', "<leader>bf", '<cmd>Telescope buffers<CR>')
+mapper('n', "<leader>ff", '<cmd>Telescope find_files<CR>')
+mapper('n', "<leader>gf", '<cmd>Telescope git_files<CR>')
+mapper('n', "<leader>fb", '<cmd>Telescope file_browser<CR>')
+mapper('n', "<leader>fh", '<cmd>Telescope help_tags<CR>')
+mapper('n', "<leader>fr", '<cmd>Telescope grep_string<CR>')
+mapper('n', "<leader>fc", '<cmd>Telescope colorscheme<CR>')

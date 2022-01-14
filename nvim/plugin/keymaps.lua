@@ -1,24 +1,21 @@
-local inoremap = vim.keymap.inoremap
-local nnoremap = vim.keymap.nnoremap
-local vnoremap = vim.keymap.vnoremap
-local noremap = vim.keymap.noremap
+local mapper = vim.keymap.set
 
-noremap { "<C-z>", "<nop>" }
-nnoremap { "+", "10<C-w><" }
-nnoremap { "-", "10<C-w>>" }
+mapper({ 'n', 'v', }, '<C-z>', '<nop>')
+mapper('n', '+', '10<C-w><')
+mapper('n', '-', '10<C-w>>')
 
-inoremap { "<A-}>", "``<C-c>i" }
-inoremap { '<A-">', '""<C-c>i' }
-inoremap { "<A-'>", "''<C-c>i" }
-inoremap { "<A-(>", "()<C-c>i" }
-inoremap { "<A-{>", "{}<C-c>i" }
-inoremap { "<A-[>", "[]<C-c>i" }
-inoremap { "<A-<>", "<><C-c>i" }
-inoremap { "{<CR>", "{<CR>}<C-c>O" }
-inoremap { "[<CR>", "[<CR>]<C-c>O<Tab>" }
+mapper('i', "<A-)>", "``<C-c>i")
+mapper('i', '<A-">', '""<C-c>i')
+mapper('i', "<A-'>", "''<C-c>i")
+mapper('i', "<A-(>", "()<C-c>i")
+mapper('i', "<A-{>", "{)<C-c>i")
+mapper('i', "<A-[>", "[]<C-c>i")
+mapper('i', "<A-<>", "<><C-c>i")
+mapper('i', "{<CR>", "{<CR>)<C-c>O")
+mapper('i', "[<CR>", "[<CR>]<C-c>O<Tab>")
 
-vnoremap { "J", " :m '>+1'<CR>gv=gv" }
-vnoremap { "K", " :m '<-2'<CR>gv=gv" }
-vnoremap { ">", ">gv" }
-vnoremap { "<", "<gv" }
+mapper('v', "J", " :m '>+1'<CR>gv=gv")
+mapper('v', "K", " :m '<-2'<CR>gv=gv")
+mapper('v', ">", ">gv")
+mapper('v', "<", "<gv")
 
