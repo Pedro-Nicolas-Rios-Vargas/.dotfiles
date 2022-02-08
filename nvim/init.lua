@@ -18,6 +18,7 @@ require "ordep.indent"
 --require "ordep.lspsaga"
 require "ordep.treesitter"
 require "ordep.lua-snippets"
+require "ordep.todo-comments-config"
 
 -- vim.cmd 'colorscheme monalisa'
 -- vim.cmd 'colorscheme my_gruvbox'

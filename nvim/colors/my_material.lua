@@ -17,7 +17,7 @@ require("material").setup {
         non_current_windows = true,
     },
     italics = {
-        comments = true,
+        comments = false,
         strings = false,
         keywords = false,
         functions = false,

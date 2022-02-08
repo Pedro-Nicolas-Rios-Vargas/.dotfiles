@@ -78,4 +78,6 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend upda
 
 Plug 'AndrewRadev/splitjoin.vim'
 
+" Comments highlights
+Plug 'folke/todo-comments.nvim'
 call plug#end()
