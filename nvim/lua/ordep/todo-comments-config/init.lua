@@ -3,29 +3,35 @@ require("todo-comments").setup {
     sign_priority = 8, -- sign priority
     -- keywords recognized as todo comments
     keywords = {
+        -- FIX: Example of fix highlight
         FIX = {
             icon = " ", -- icon used for the sign, and in search results
             color = "error", -- can be a hex color, or a named color (see below)
             alt = { "FIXME", "BUG", "FIXIT", "ISSUE" }, -- a set of other keywords that all map to this FIX keywords
             -- signs = false, -- configure signs for some keywords individually
         },
+        -- TODO: Example of todo highlight
         TODO = {
             icon = " ",
             color = "info",
         },
+        -- HACK: Example of hack highlight
         HACK = {
             icon = " ",
             color = "warning",
         },
+        -- WARN: Example of warn highlight
         WARN = {
             icon = " ",
             color = "warning",
             alt = { "WARNING", "XXX" },
         },
+        -- PERF: Example of performance highlight
         PERF = {
             icon = " ",
             alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE" },
         },
+        -- NOTE: Example of note highlight
         NOTE = {
             icon = " ",
             color = "hint",

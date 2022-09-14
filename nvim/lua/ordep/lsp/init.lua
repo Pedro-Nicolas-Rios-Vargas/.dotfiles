@@ -82,12 +82,19 @@ table.insert(runtime_path, "lua/?/init.lua")
 -- pyright
 -- tsserver
 -- pylsp
+-- hls
 local servers = {
     pylsp = true,
-    jdtls = true,
     html = false,
     cssls = true,
     jsonls = false,
+    jdtls = true,
+    hls = true,
+    -- {
+    --     cmd = {
+    --         'haskell-language-server-wrapper-1.7.0.0', '--lsp'
+    --     }
+    -- },
     sumneko_lua = {
         cmd = { sumneko_binary, "-E", sumneko_root_path .. "/main.lua" },
         settings = {
@@ -119,10 +126,27 @@ local servers = {
             "typescript.tsx",
         },
         on_attach = function (client)
-            client.resolved_capabilities.document_formatting = false
+            -- client.resolved_capabilities.document_formatting = false
+            client.server_capabilities.document_formatting = false
             custom_attach(client)
         end
     },
+    arduino_language_server = {
+        cmd = {
+            -- Required
+            "arduino-language-server",
+            "-cli-config", "$HOME/.arduino15/arduino-cli.yaml",
+            -- Optional
+            "-cli", "$HOME/bin/arduino-cli",
+            "-clangd", "/usr/bin/clangd-12",
+            "fqbn", "arduino:avr:uno"
+        },
+        filetypes = { "ino", "arduino" },
+        root_dir = function (startpath)
+            --print('Start path of arduino-ls: ', startpath)
+            return startpath
+        end
+    }
 }
 
 local setup_server = function (server, config)

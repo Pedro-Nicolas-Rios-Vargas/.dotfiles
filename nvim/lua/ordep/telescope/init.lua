@@ -37,7 +37,7 @@ telescope.setup{
         generic_sorter =  require'telescope.sorters'.get_generic_fuzzy_sorter,
         winblend = 0,
         border = {},
-        borderchars = { '─', '│', '-', '│', '╭', '╮', '╯', '╰' },
+        borderchars = { '─', '│', '─', '│', '╭', '╮', '╯', '╰' },
         color_devicons = true,
         use_less = true,
         path_display = {},
@@ -54,7 +54,6 @@ telescope.setup{
 mapper('n', "<leader>bf", '<cmd>Telescope buffers<CR>')
 mapper('n', "<leader>ff", '<cmd>Telescope find_files<CR>')
 mapper('n', "<leader>gf", '<cmd>Telescope git_files<CR>')
-mapper('n', "<leader>fb", '<cmd>Telescope file_browser<CR>')
 mapper('n', "<leader>fh", '<cmd>Telescope help_tags<CR>')
-mapper('n', "<leader>fr", '<cmd>Telescope grep_string<CR>')
+mapper('n', "<leader>fr", '<cmd>Telescope live_grep<CR>')
 mapper('n', "<leader>fc", '<cmd>Telescope colorscheme<CR>')

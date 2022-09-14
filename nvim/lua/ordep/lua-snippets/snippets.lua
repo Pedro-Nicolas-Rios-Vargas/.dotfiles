@@ -6,7 +6,7 @@ local i = ls.insert_node
 local f = ls.function_node
 local c = ls.choice_node
 local d = ls.dynamic_node
-local r = ls.restore_node
+-- local r = ls.restore_node
 
 ls.config.set_config({
     history = true,
@@ -108,9 +108,8 @@ local function jdocsnip(args, _, old_state)
     return snip
 end
 
-ls.snippets = {
-    all = {},
-    lua = {
+ls.add_snippets("all", { })
+ls.add_snippets("lua", {
         s(
             {
                 trig = "function ()",
@@ -305,9 +304,10 @@ ls.snippets = {
                 i(0)
             }
         )
-    },
-    js = { },
-    html = {
+})
+
+ls.add_snippets("js", { })
+ls.add_snippets("html", {
         s(
             { trig = "html5" },
             {
@@ -357,10 +357,11 @@ ls.snippets = {
                     }
                 ),
                 t(">"),
-                i(0),
+                i(2),
                 t( "</h" ),
                 f(copy, 1),
-                t(">")
+                t({  ">", ''}),
+                i(0)
             }
         ),
         s(
@@ -371,9 +372,91 @@ ls.snippets = {
             {
                 t("<"),
                 i(1),
-                t("></"),
+                t(">"),
+                i(2),
+                t("</"),
                 f(copy, 1),
-                t(">")
+                t({  ">", '' }),
+                i(0)
+            }
+        ),
+        s(
+            {
+                trig = "<a",
+                dscr = "Anchor tag"
+            },
+            {
+                t('<a href="'),
+                i(1),
+                t('" >'),
+                i(2),
+                t({  '</a>', '' }),
+                i(0),
+            }
+        ),
+        s(
+            {
+                trig = "<input",
+                dscr = "Input tag"
+            },
+            {
+                t('<label for="'),
+                f(copy, 3),
+                t('">'),
+                i(1),
+                t({ '</label>', '' }),
+                t('<input type="'),
+                c(2, {
+                    t('button'),
+                    t('checkbox'),
+                    t('color'),
+                    t('date'),
+                    t('datetime-local'),
+                    t('email'),
+                    t('file'),
+                    t('hidden'),
+                    t('image'),
+                    t('month'),
+                    t('number'),
+                    t('password'),
+                    t('radio'),
+                    t('range'),
+                    t('reset'),
+                    t('search'),
+                    t('submit'),
+                    t('tel'),
+                    t('text'),
+                    t('time'),
+                    t('url'),
+                    t('week')
+                }),
+                t('" id="'),
+                i(3),
+                t('" name="'),
+                i(4),
+                t('" '),
+                c(5, {
+                    t(''),
+                    t('required ')
+                }),
+                c(6, {
+                    t(''),
+                    t('autocomplete ')
+                }),
+                t({  '/>', '' }),
+                i(0)
+            }
+        ),
+        s(
+            {
+                trig = "<!",
+                dscr = "HTML comment line"
+            },
+            {
+                t({ '<!--', '\t' }),
+                i(1),
+                t({ '', '-->', '' }),
+                i(0)
             }
         ),
         s(
@@ -396,8 +479,9 @@ ls.snippets = {
                 t('" ')
             }
         )
-    },
-    java = {
+})
+
+ls.add_snippets("java", {
         s(
             {
                 trig = "func",
@@ -436,6 +520,6 @@ ls.snippets = {
                 t({ "", "}" }),
             }
         )
-    },
-    python = { }
-}
+})
+
+ls.add_snippets("python", { })

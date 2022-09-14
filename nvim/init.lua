@@ -21,5 +21,5 @@ require "ordep.lua-snippets"
 require "ordep.todo-comments-config"
 
 -- vim.cmd 'colorscheme monalisa'
--- vim.cmd 'colorscheme my_gruvbox'
-vim.cmd 'colorscheme my_material'
+vim.cmd 'colorscheme my_gruvbox'
+--vim.cmd 'colorscheme my_material'

@@ -4,7 +4,7 @@ local has_words_before = function ()
     :sub(col, col):match("%s") == nil
 end
 
-local luasnip = require("luasnip")
+-- local luasnip = require("luasnip")
 local cmp = require("cmp")
 
 vim.cmd [[
@@ -18,14 +18,11 @@ cmp.setup({
             require("luasnip").lsp_expand(args.body)
         end,
     },
-    mapping = {
-        [ '<C-d>' ] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
-        [ '<C-f>' ] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
-        [ '<C-Space>' ] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
-        [ '<C-e>' ] = cmp.mapping({
-            i = cmp.mapping.abort(),
-            c = cmp.mapping.close(),
-        }),
+    mapping = cmp.mapping.preset.insert({
+        [ '<C-d>' ] = cmp.mapping.scroll_docs(-4),
+        [ '<C-f>' ] = cmp.mapping.scroll_docs(4),
+        [ '<C-Space>' ] = cmp.mapping.complete(),
+        [ '<C-e>' ] = cmp.mapping.abort(),
         [ '<CR>' ] = cmp.mapping.confirm({ select = false }),
         [ '<C-n>' ] = cmp.mapping(function (fallback)
             if cmp.visible() then
@@ -43,8 +40,9 @@ cmp.setup({
                 fallback()
             end
         end, { "i", "s" }),
-    },
+    }),
     sources = cmp.config.sources({
+        { name = 'nvim_lsp_signature_help'},
         { name = 'luasnip' },
         { name = 'nvim_lsp' },
         { name = 'nvim_lua' },
@@ -68,8 +66,13 @@ cmp.setup({
             }),
         }),
     },
+    view = {
+        entries = 'native', -- old experimental.native_menu
+    },
+    window = {
+        documentation = true,
+    },
     experimental = {
-        native_menu = false,
         ghost_text = true,
     },
 })
