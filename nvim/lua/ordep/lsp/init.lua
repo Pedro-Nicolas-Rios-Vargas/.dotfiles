@@ -11,7 +11,7 @@ local custom_init = function (client)
     client.config.flags.allow_incremental_sync = true
 end
 
-local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 local filetype_attach = setmetatable({
     html = function(client)
@@ -41,7 +41,7 @@ local custom_attach = function(client)
     mapper('n', '<leader>rn', vim.lsp.buf.rename)
     mapper('n', '<leader>ca', vim.lsp.buf.code_action)
     mapper('n', 'gr', vim.lsp.buf.references)
-    mapper('n', '<leader>f', vim.lsp.buf.formatting)
+    mapper('n', '<leader>f', vim.lsp.buf.format)
 
     if filetype ~= "lua" then
         mapper('n', 'K', vim.lsp.buf.hover)
