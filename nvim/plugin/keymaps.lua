@@ -40,3 +40,15 @@ mapper('v', ">", ">gv")
 -- decrease indentation to selected lines
 mapper('v', "<", "<gv")
 
+local contador = 0
+function ListItem()
+    contador = contador + 1
+    return contador .. '. '
+end
+function ListReset()
+    contador = 0
+    return ''
+end
+mapper('i', '<C-L>', ListItem, { expr = true })
+mapper('i', '<C-R>', ListReset, { expr = true })
+

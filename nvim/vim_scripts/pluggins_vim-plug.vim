@@ -13,71 +13,86 @@ call plug#begin('~/.nvim/plugged')
 
 " indent decorator
 
-Plug 'lukas-reineke/indent-blankline.nvim'
+"Plug 'lukas-reineke/indent-blankline.nvim'
 
 " colorscheme
 " {{{
-Plug 'gruvbox-community/gruvbox'
-Plug 'marko-cerovac/material.nvim'
+"Plug 'gruvbox-community/gruvbox'
+"Plug 'marko-cerovac/material.nvim'
 " }}}
 
 " LSP
 " {{{
 " lsp requirements
-Plug 'neovim/nvim-lspconfig'
-Plug 'mfussenegger/nvim-jdtls'
-Plug 'hrsh7th/cmp-calc'
-Plug 'hrsh7th/cmp-nvim-lua'
-Plug 'hrsh7th/cmp-path'
-Plug 'hrsh7th/nvim-cmp'
-Plug 'hrsh7th/cmp-nvim-lsp'
-Plug 'hrsh7th/cmp-buffer'
-Plug 'hrsh7th/cmp-nvim-lsp-signature-help'
-Plug 'onsails/lspkind-nvim'
+"Plug 'neovim/nvim-lspconfig'
+"Plug 'mfussenegger/nvim-jdtls'
+"Plug 'hrsh7th/cmp-calc'
+"Plug 'hrsh7th/cmp-nvim-lua'
+"Plug 'hrsh7th/cmp-path'
+"Plug 'hrsh7th/nvim-cmp'
+"Plug 'hrsh7th/cmp-nvim-lsp'
+"Plug 'hrsh7th/cmp-buffer'
+"Plug 'hrsh7th/cmp-nvim-lsp-signature-help'
+"Plug 'onsails/lspkind-nvim'
 
 " HTML, CSS, JSON
 " vscode-lsp requirements
-Plug 'hrsh7th/vscode-langservers-extracted'
+"Plug 'hrsh7th/vscode-langservers-extracted'
 
 "}}}
 
 " vscode snippet
 " {{{
-"Plug 'hrsh7th/cmp-vsnip'
-"Plug 'hrsh7th/vim-vsnip'
-"Plug 'hrsh7th/vim-vsnip-integ'
-"Plug 'rafamadriz/friendly-snippets'
+""Plug 'hrsh7th/cmp-vsnip'
+""Plug 'hrsh7th/vim-vsnip'
+""Plug 'hrsh7th/vim-vsnip-integ'
+""Plug 'rafamadriz/friendly-snippets'
 " }}}
 
 " LuaSnip plugs
 " {{{
-Plug 'L3MON4D3/LuaSnip'
-Plug 'saadparwaiz1/cmp_luasnip'
+"Plug 'L3MON4D3/LuaSnip'
+"Plug 'saadparwaiz1/cmp_luasnip'
 " }}}
 " telescope pluggins
 " {{{
-Plug 'nvim-lua/popup.nvim'
-Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim'
+"Plug 'nvim-lua/popup.nvim'
+"Plug 'nvim-lua/plenary.nvim'
+"Plug 'nvim-telescope/telescope.nvim'
 
-Plug 'ap/vim-css-color'
+"Plug 'ap/vim-css-color'
 " }}}
 
 " Neovim bar decorator
 " {{{
-Plug 'nvim-lualine/lualine.nvim'
+"Plug 'nvim-lualine/lualine.nvim'
 
-Plug 'ryanoasis/vim-devicons'
-Plug 'kyazdani42/nvim-web-devicons'
+"Plug 'ryanoasis/vim-devicons'
+"Plug 'kyazdani42/nvim-web-devicons'
 " }}}
 
-" Plug for remap with lua, now using vim.keymap
-" Plug 'tjdevries/astronauta.nvim'
+" "Plug for remap with lua, now using vim.keymap
+" "Plug 'tjdevries/astronauta.nvim'
 
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
+"Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
 
-Plug 'AndrewRadev/splitjoin.vim'
+"Plug 'AndrewRadev/splitjoin.vim'
 
 " Comments highlights
-Plug 'folke/todo-comments.nvim'
+"Plug 'folke/todo-comments.nvim'
 call plug#end()
+
+" {{{
+"
+" Markdown Preview
+"
+" If you don't have nodejs and yarn
+" use pre build, add 'vim-plug' to the filetype list so vim-plug can update this plugin
+" see: https://github.com/iamcco/markdown-preview.nvim/issues/50
+" "Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+
+
+" If you have nodejs and yarn
+" "Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
+"
+" }}}

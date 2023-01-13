@@ -1,6 +1,12 @@
 vim.g.mapleader = " "
 
-vim.cmd ('so ~/.config/nvim/vim_scripts/pluggins_vim-plug.vim')
+-- TODO: Remove Vim-Plug from his installation path.
+
+-- Load the plugins with packer
+require "ordep.plugins"
+
+-- Old plugins loader
+-- vim.cmd ('so ~/.config/nvim/vim_scripts/pluggins_vim-plug.vim')
 vim.cmd ('so ~/.config/nvim/vim_scripts/splitjoin_script.vim')
 
 vim.cmd [[
@@ -23,3 +29,6 @@ require "ordep.todo-comments-config"
 -- vim.cmd 'colorscheme monalisa'
 vim.cmd 'colorscheme my_gruvbox'
 --vim.cmd 'colorscheme my_material'
+
+
+require "ordep.test"

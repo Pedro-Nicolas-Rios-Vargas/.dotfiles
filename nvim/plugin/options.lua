@@ -11,10 +11,14 @@ opt.autoindent = true
 opt.smartindent = true
 opt.backupcopy = "yes"
 
-opt.relativenumber = true -- show the relative number of lines from cursor
-opt.number = true -- and show the real number of actual line.
-opt.hlsearch = true -- Highlight search
-opt.hidden = true -- Retain the buffers (windows/files) opened.
+-- show the relative number of lines from cursor
+opt.relativenumber = true
+-- show the real number of actual line.
+opt.number = true
+-- Highlight search
+opt.hlsearch = true
+-- Retain the buffers (windows/files) opened.
+opt.hidden = true
 opt.wrap = false
 opt.colorcolumn = "80"
 opt.signcolumn = "yes"
@@ -27,6 +31,3 @@ opt.modelines = 0
 
 -- windows things
 opt.splitright = true
-
--- complete options for nvim-cmp
---vim.o.completeopt = "menuone,noinsert,noselect"
