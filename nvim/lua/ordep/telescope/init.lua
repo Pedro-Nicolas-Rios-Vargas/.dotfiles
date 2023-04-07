@@ -1,3 +1,4 @@
+local builtin = require('telescope.builtin')
 local mapper = vim.keymap.set
 
 local has_telescope, telescope = pcall(require, "telescope")
@@ -6,7 +7,7 @@ if not has_telescope then
     return
 end
 
-telescope.setup{
+telescope.setup {
     defaults = {
         vimgrep_arguments = {
             'rg',
@@ -26,15 +27,15 @@ telescope.setup{
         layout_strategy = "horizontal",
         layout_config = {
             horizontal = {
-              mirror = false,
+                mirror = false,
             },
             vertical = {
-              mirror = false,
+                mirror = false,
             },
         },
-        file_sorter =  require'telescope.sorters'.get_fuzzy_file,
+        file_sorter = require 'telescope.sorters'.get_fuzzy_file,
         file_ignore_patterns = {},
-        generic_sorter =  require'telescope.sorters'.get_generic_fuzzy_sorter,
+        generic_sorter = require 'telescope.sorters'.get_generic_fuzzy_sorter,
         winblend = 0,
         border = {},
         borderchars = { '─', '│', '─', '│', '╭', '╮', '╯', '╰' },
@@ -42,18 +43,18 @@ telescope.setup{
         use_less = true,
         path_display = {},
         set_env = { ['COLORTERM'] = 'truecolor' }, -- default = nil,
-        file_previewer = require'telescope.previewers'.vim_buffer_cat.new,
-        grep_previewer = require'telescope.previewers'.vim_buffer_vimgrep.new,
-        qflist_previewer = require'telescope.previewers'.vim_buffer_qflist.new,
-
+        file_previewer = require 'telescope.previewers'.vim_buffer_cat.new,
+        grep_previewer = require 'telescope.previewers'.vim_buffer_vimgrep.new,
+        qflist_previewer = require 'telescope.previewers'.vim_buffer_qflist.new,
         -- Developer configurations: Not meant for general override
-        buffer_previewer_maker = require'telescope.previewers'.buffer_previewer_maker
+        buffer_previewer_maker = require 'telescope.previewers'.buffer_previewer_maker
     }
 }
 
-mapper('n', "<leader>bf", '<cmd>Telescope buffers<CR>')
-mapper('n', "<leader>ff", '<cmd>Telescope find_files<CR>')
-mapper('n', "<leader>gf", '<cmd>Telescope git_files<CR>')
-mapper('n', "<leader>fh", '<cmd>Telescope help_tags<CR>')
-mapper('n', "<leader>fr", '<cmd>Telescope live_grep<CR>')
-mapper('n', "<leader>fc", '<cmd>Telescope colorscheme<CR>')
+mapper('n', "<leader>bf", builtin.buffers, { desc = "Open Telescope window with all opened buffers on session."})
+mapper('n', "<leader>ff", builtin.find_files, { desc = "Open Telescope window for find files."})
+mapper('n', "<leader>gf", builtin.git_files, { desc = "Open Telescope window showing git files."})
+mapper('n', "<leader>fh", builtin.help_tags, { desc = "Open Telescope window showing all help tags."})
+mapper('n', "<leader>fr", builtin.live_grep, { desc = "Open Telescope window for find words in text files using ripgrep."})
+mapper('n', "<leader>fc", builtin.colorscheme, { desc = "Open Telescope window showing all colorschemes installed."})
+mapper('n', "<leader>kk", builtin.keymaps, { desc = "Open Telescope window showing all registered keymaps."})

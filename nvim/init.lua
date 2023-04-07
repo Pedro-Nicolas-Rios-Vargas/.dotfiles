@@ -15,6 +15,8 @@ augroup yanking
 augroup END
 ]]
 
+require "ordep.nvimtree"
+
 vim.cmd [[runtime plugin/astronauta.vim]]
 require "ordep.lualineconf"
 require "ordep.telescope"
@@ -27,7 +29,8 @@ require "ordep.lua-snippets"
 require "ordep.todo-comments-config"
 
 -- vim.cmd 'colorscheme monalisa'
-vim.cmd 'colorscheme my_gruvbox'
+--vim.cmd 'colorscheme my_gruvbox'
+require "ordep.colors.my_material"
 --vim.cmd 'colorscheme my_material'
 
 

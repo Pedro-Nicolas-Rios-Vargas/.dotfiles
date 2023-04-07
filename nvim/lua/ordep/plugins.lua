@@ -22,7 +22,10 @@ return require('packer').startup(function (use)
 
     use { -- Colorschemes
         'gruvbox-community/gruvbox',
-        { 'marko-cerovac/material.nvim' }
+        {
+            'marko-cerovac/material.nvim',
+            'folke/tokyonight.nvim',
+        }
     }
 
     use { -- LSP -> Brings helpers for the languages
@@ -32,6 +35,13 @@ return require('packer').startup(function (use)
                                        -- I never used...
                                        -- I think...
             'hrsh7th/vscode-langservers-extracted' -- required for vscode-lsp
+        }
+    }
+
+    use {
+        'nvim-tree/nvim-tree.lua',
+        requires = {
+            'nvim-tree/nvim-web-devicons'
         }
     }
 
@@ -68,8 +78,8 @@ return require('packer').startup(function (use)
     use { -- Decoration for the line bar
         'nvim-lualine/lualine.nvim',
         requires = {
-            {'ryanoasis/vim-devicons'}, -- Vim devicons
-            {'kyazdani42/nvim-web-devicons', opt = true} -- Same as above one,
+            -- {'ryanoasis/vim-devicons'}, -- Vim devicons
+            {'kyazdani42/nvim-web-devicons'--[[, opt = true--]]} -- Same as above one,
                                                          -- but it is needed
                                                          -- ¯\_(ツ)_/¯
         }
@@ -97,6 +107,16 @@ return require('packer').startup(function (use)
         'folke/todo-comments.nvim',
         -- requires = 'nvim-lua/plenary'
     }
+
+    -- Markdown previewer server
+    use({
+        "iamcco/markdown-preview.nvim",
+        run = function() vim.fn["mkdp#util#install"]() end,
+        setup = function ()
+            vim.g.mkdp_filetypes = { "markdown" }
+        end,
+        ft = { "markdown" },
+    })
 
     if is_bootstrap then
         require('packer').sync()
