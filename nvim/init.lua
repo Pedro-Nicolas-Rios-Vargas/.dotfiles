@@ -1,6 +1,20 @@
 vim.g.mapleader = " "
 
--- TODO: Remove Vim-Plug from his installation path.
+-- Assign the copy/paste functions to wl-clipboard
+vim.cmd [[
+let g:clipboard = {
+      \   'name': 'myClipboard',
+      \   'copy': {
+      \      '+': 'wl-copy',
+      \      '*': 'wl-copy',
+      \    },
+      \   'paste': {
+      \      '+': 'wl-paste',
+      \      '*': 'wl-paste',
+      \   },
+      \   'cache_enabled': 1,
+      \ }
+]]
 
 -- Load the plugins with packer
 require "ordep.plugins"
@@ -25,13 +39,16 @@ require "ordep.lsp"
 require "ordep.indent"
 --require "ordep.lspsaga"
 require "ordep.treesitter"
+require "ordep.treesitter-context-config"
 require "ordep.lua-snippets"
 require "ordep.todo-comments-config"
 
+require "ordep.colorize"
 -- vim.cmd 'colorscheme monalisa'
---vim.cmd 'colorscheme my_gruvbox'
-require "ordep.colors.my_material"
+vim.cmd 'colorscheme my_gruvbox'
+-- require "ordep.colors.my_material"
 --vim.cmd 'colorscheme my_material'
 
+require "ordep.autoscope"
 
-require "ordep.test"
+-- require "ordep.test"

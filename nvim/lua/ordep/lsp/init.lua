@@ -90,6 +90,7 @@ local servers = {
     jsonls = false,
     jdtls = true,
     hls = true,
+    eslint = false,
     -- {
     --     cmd = {
     --         'haskell-language-server-wrapper-1.7.0.0', '--lsp'

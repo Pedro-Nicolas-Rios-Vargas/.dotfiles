@@ -28,6 +28,7 @@ opt.showmode = false
 opt.termguicolors = true
 opt.encoding = "UTF-8"
 opt.modelines = 0
+opt.cursorline = true
 
 -- windows things
 opt.splitright = true

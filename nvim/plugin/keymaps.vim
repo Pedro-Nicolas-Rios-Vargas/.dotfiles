@@ -1,9 +1,9 @@
-noremap! ñ+ ~
-noremap! ñ{ ^
-noremap! ñ' \
-noremap! ñ} `
+" "noremap! ñ+ ~
+" "noremap! ñ{ ^
+" "noremap! ñ' \
+" "noremap! ñ} `
 
-nnoremap <expr> <CR> {-> v:hlsearch ? ":nohl\<CR>" : "\<CR>"}()
+" nnoremap <expr> <CR> {-> v:hlsearch ? ":nohl\<CR>" : "\<CR>"}()
 
 " let counter = 0
 " inoremap <expr> <C-L> ListItem()

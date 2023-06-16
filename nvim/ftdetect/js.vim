@@ -1,1 +1,1 @@
-au BufRead,BufNewFile *.js set tabstop=4 softtabstop=4 shiftwidth=4
+au BufRead,BufNewFile *.js set tabstop=2 softtabstop=2 shiftwidth=2

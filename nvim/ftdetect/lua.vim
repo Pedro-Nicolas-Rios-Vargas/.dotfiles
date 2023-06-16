@@ -1,1 +1,1 @@
-au BufRead,BufNewFile *.lua set tabstop=4 softtabstop=4 shiftwidth=4
+au BufRead,BufNewFile *.lua set tabstop=2 softtabstop=2 shiftwidth=2
