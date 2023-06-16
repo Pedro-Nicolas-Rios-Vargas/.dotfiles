@@ -11,4 +11,6 @@ dconf/*
 enchant/*
 gedit/*
 jgit/*
-kitty/*
+
+nvim/lua/.luarc.json
+nvim/plugin/packer_compiled.lua

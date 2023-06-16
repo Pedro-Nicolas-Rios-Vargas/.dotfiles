@@ -1,0 +1,18 @@
+new_tab cmd
+layout tall
+launch --title Io --cwd=~
+
+new_tab dev
+layout tall
+
+launch --cwd=/home/ordep/dev/ITCG/residencias/SGC-backend --title "Backend" zsh
+launch --cwd=/home/ordep/dev/ITCG/residencias/SGC-Frontend/frontend --title "Frontend" zsh
+
+
+new_tab servers
+layout tall
+launch  --hold --cwd=/home/ordep/dev/ITCG/residencias/SGC-backend/SGC/ --title "Django Server"
+launch --cwd=/home/ordep/dev/ITCG/residencias/SGC-Frontend/frontend --title "React Server"
+
+# launch --hold --title "Django Server" zsh -c ". /home/ordep/dev/bash/backend_dev_start.sh" zsh
+# launch --hold --title "React Server" zsh -c ". /home/ordep/dev/bash/frontend_dev_start.sh" zsh
