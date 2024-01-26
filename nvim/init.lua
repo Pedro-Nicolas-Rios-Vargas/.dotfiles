@@ -16,39 +16,31 @@ let g:clipboard = {
       \ }
 ]]
 
--- Load the plugins with packer
-require "ordep.plugins"
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.uv.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath)
 
--- Old plugins loader
+require('lazy').setup("plugins")
+
 -- vim.cmd ('so ~/.config/nvim/vim_scripts/pluggins_vim-plug.vim')
 vim.cmd ('so ~/.config/nvim/vim_scripts/splitjoin_script.vim')
 
-vim.cmd [[
-augroup yanking
-    au TextYankPost * lua vim.highlight.on_yank { higroup="IncSearch", timeout=150, on_visual=true }
-augroup END
-]]
+-- load augroups
+require("ordep.groups")
 
-require "ordep.nvimtree"
+vim.cmd [[ colorscheme gruvbox ]]
 
-vim.cmd [[runtime plugin/astronauta.vim]]
-require "ordep.lualineconf"
-require "ordep.telescope"
-require "ordep.cmp-config"
-require "ordep.lsp"
-require "ordep.indent"
---require "ordep.lspsaga"
-require "ordep.treesitter"
-require "ordep.treesitter-context-config"
-require "ordep.lua-snippets"
-require "ordep.todo-comments-config"
+-- vim.cmd [[ colorscheme catppuccin ]]
 
-require "ordep.colorize"
--- vim.cmd 'colorscheme monalisa'
-vim.cmd 'colorscheme my_gruvbox'
--- require "ordep.colors.my_material"
---vim.cmd 'colorscheme my_material'
-
-require "ordep.autoscope"
+-- require "ordep.autoscope"
 
 -- require "ordep.test"
