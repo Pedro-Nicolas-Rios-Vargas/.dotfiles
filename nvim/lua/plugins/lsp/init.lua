@@ -3,6 +3,31 @@ local custom_attach = require("plugins.lsp.keymaps")
 return {
   {
     "neovim/nvim-lspconfig",
+    dependencies = {
+      {
+        "williamboman/mason.nvim",
+        config = function (_)
+          require("mason").setup()
+        end
+      },
+      {
+        "williamboman/mason-lspconfig.nvim",
+        opts = {
+          ensure_installed = {
+            "lua_ls",
+            "jdtls",
+            "tsserver",
+            "gradle_ls",
+            "gopls",
+            "pylsp",
+            "html",     -- 
+            "cssls",    -- This four lsp's use the same resource 
+            "jsonls",   -- hrsh7th/vscode-langservers-extracted
+            "eslint",   --
+          },
+        },
+      },
+    },
     opts = {
       on_init = function (client)
         client.config.flags = client.config.flags or {}
@@ -15,6 +40,8 @@ return {
         jsonls = false,
         jdtls = true,
         hls = true,
+        gopls = true,
+        gradle_ls = true,
         eslint = false,
         lua_ls = {
           on_init = function (client)
@@ -43,7 +70,6 @@ return {
                   },
                 }
               )
-
               client.notify("workspace/didChangeConfiguration", { settings = client.config.settings })
             end
             return true
@@ -132,10 +158,13 @@ return {
       "neovim/nvim-lspconfig"
     }
   },
+  --[[
   {
     "hrsh7th/vscode-langservers-extracted",
     dependencies = {
       "neovim/nvim-lspconfig"
     }
-  }
+  },
+  --]]
+
 }

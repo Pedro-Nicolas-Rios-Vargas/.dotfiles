@@ -1,3 +1,5 @@
+--[[
+-- Old memories of configurations
 require("nvim-treesitter.configs").setup {
     ensure_installed = { "c", "lua", "vim", "java", "python",
                          "javascript", "css", "html", "bash", "arduino",
@@ -36,3 +38,4 @@ require("nvim-treesitter.configs").setup {
         enable = true,
     },
 }
+--]]

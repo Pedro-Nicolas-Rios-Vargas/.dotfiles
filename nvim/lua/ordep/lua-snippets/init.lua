@@ -1,3 +1,5 @@
+--[[
+-- Old memories of configurations
 local function prequire(...)
     local status, lib = pcall(require, ...)
     if (status) then return lib end
@@ -44,3 +46,4 @@ vim.api.nvim_set_keymap("i", "<C-E>", "<Plug>luasnip-next-choice", {})
 vim.api.nvim_set_keymap("s", "<C-E>", "<Plug>luasnip-next-choice", {})
 
 require('ordep.lua-snippets.snippets')
+--]]

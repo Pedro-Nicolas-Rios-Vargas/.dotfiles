@@ -10,9 +10,11 @@ function M.setup()
   local project_name = vim.fn.fnamemodify(root_dir, ":p:h:t")
   local workspace_dir = home .. "/.cache/jdtls/workspace" .. project_name
 
-  local path_to_jdtls = home .. "repos/jdtls/"
+  local mason_package_path = home .. "/.local/share/nvim/mason/packages/"
+
+  local path_to_jdtls = mason_package_path .. "jdtls/"
   local path_to_config = path_to_jdtls .. "/config_linux"
-  local path_to_jar = path_to_jdtls .. "/plugins/org.eclipse.equinox.launcher_1.6.400.v20210924-0641.jar"
+  local path_to_jar = path_to_jdtls .. "/plugins/org.eclipse.equinox.launcher_1.6.700.v20231214-2017.jar"
 
   -- TODO: Add the repos/java-debug for jdebug
   local bundles = {}

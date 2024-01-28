@@ -1,3 +1,5 @@
+--[[
+-- Old memories of init config
 local mapper = vim.keymap.set
 
 local has_lsp, nvim_lsp = pcall(require, "lspconfig")
@@ -21,6 +23,8 @@ local filetype_attach = setmetatable({
                 autocmd BufWritePre <buffer> :lua vim.lsp.buf.formatting_sync()
             augroup END
         ]]
+--]]
+--[[
     end,
 },{
     __index = function()
@@ -185,3 +189,4 @@ return {
     on_attach = custom_attach,
     capabilities = capabilities,
 }
+--]]
