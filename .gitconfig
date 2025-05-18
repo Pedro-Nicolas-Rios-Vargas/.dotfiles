@@ -1,0 +1,12 @@
+[core]
+	editor = nvim
+[user]
+	name = Pedro Nicolás Rios Vargas
+	email = pv123124@gmail.com
+[init]
+	defaultBranch = main
+[pull]
+	rebase = false
+
+[merge]
+    tool = nvimdiff
