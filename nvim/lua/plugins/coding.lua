@@ -36,7 +36,6 @@ return {
       return {
         snippet = {
             expand = function(args)
-                --vim.fn["vsnip#anonymous"](args.body)
                 require("luasnip").lsp_expand(args.body)
             end,
         },
@@ -46,6 +45,7 @@ return {
           [ '<C-Space>' ] = cmp.mapping.complete(),
           [ '<C-e>' ] = cmp.mapping.abort(),
           [ '<CR>' ] = cmp.mapping.confirm({ select = false }),
+          --[[
           [ '<C-n>' ] = cmp.mapping(function (fallback)
             if cmp.visible() then
               cmp.select_next_item()
@@ -55,6 +55,14 @@ return {
               fallback()
             end
           end, { "i", "s" }),
+          --]]
+          [ '<C-n' ] = function (fallback)
+            if cmp.visible() then
+              cmp.select_next_item()
+            else
+              fallback()
+            end
+          end,
           [ '<C-p>' ] = cmp.mapping(function (fallback)
             if cmp.visible() then
               cmp.select_prev_item()
@@ -68,7 +76,6 @@ return {
             { name = 'luasnip' },
             { name = 'nvim_lsp' },
             { name = 'nvim_lua' },
-            --{ name = 'vsnip' },
             { name = 'path' },
             { name = 'calc' },
         }, {
@@ -76,7 +83,7 @@ return {
         }),
         formatting = {
             format = require("lspkind").cmp_format({
-                with_text = true,
+                mode = 'symbol_text',
                 menu = ({
                     buffer = "[Buffer]",
                     nvim_lsp = "[LSP]",
@@ -122,9 +129,9 @@ return {
         ["("] = { escape = false, close = true, pair = "()"},
         ["["] = { escape = false, close = true, pair = "[]"},
         ["{"] = { escape = false, close = true, pair = "{}"},
-        ["<"] = { escape = false, close = true, pair = "<>"},
+        -- ["<"] = { escape = false, close = true, pair = "<>"},
 
-        [">"] = { escape = true, close = false, pair = "<>"},
+        -- [">"] = { escape = true, close = false, pair = "<>"},
         [")"] = { escape = true, close = false, pair = "()"},
         ["]"] = { escape = true, close = false, pair = "[]"},
         ["}"] = { escape = true, close = false, pair = "{}"},

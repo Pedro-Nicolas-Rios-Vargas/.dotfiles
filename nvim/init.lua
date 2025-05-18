@@ -1,20 +1,21 @@
 vim.g.mapleader = " "
+-- gruvbox global vars
+vim.g.gruvbox_contrast_dark = "hard"
 
 -- Assign the copy/paste functions to wl-clipboard
-vim.cmd [[
-let g:clipboard = {
-      \   'name': 'myClipboard',
-      \   'copy': {
-      \      '+': 'wl-copy',
-      \      '*': 'wl-copy',
-      \    },
-      \   'paste': {
-      \      '+': 'wl-paste',
-      \      '*': 'wl-paste',
-      \   },
-      \   'cache_enabled': 1,
-      \ }
-]]
+vim.g.clipboard = {
+  name = 'myClipboard',
+  copy = {
+    ['+'] = 'wl-copy',
+    ['*'] = 'wl-copy',
+  },
+  paste = {
+    ['+'] = 'wl-paste',
+    ['*'] = 'wl-paste',
+  },
+  cache_enabled = 1,
+}
+
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.uv.fs_stat(lazypath) then

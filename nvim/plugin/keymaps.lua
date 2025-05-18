@@ -40,14 +40,14 @@ mapper('i', "{<CR>", "{<CR>}<C-c>O", { desc = "PERSONAL Open curly braces block 
 -- start a indented brace block
 mapper('i', "[<CR>", "[<CR>]<C-c>O<Tab>", { desc = "PERSONAL Open square braces block with new line and place the cursor inside." })
 
+--]]
 -- Move selected text into block closures.
 mapper('v', "(", "di(<C-c>pa)<C-c>i", { desc = "PERSONAL Move the selected text to parentheses." })
 mapper('v', "[", "di[<C-c>pa]<C-c>i", { desc = "PERSONAL Move the selected text to square brackets." })
 mapper('v', "{", "di{<C-c>pa}<C-c>i", { desc = "PERSONAL Move the selected text to curly braces." })
-mapper('v', '"', 'di"<C-c>pa"<C-c>i', { desc = "PERSONAL Move the selected text to doble quote." })
+--mapper('v', '"', 'di"<C-c>pa"<C-c>i', { desc = "PERSONAL Move the selected text to doble quote." })
 mapper('v', "'", "di'<C-c>pa'<C-c>i", { desc = "PERSONAL Move the selected text to single quote." })
 mapper('v', "`", "di`<C-c>pa`<C-c>i", { desc = "PERSONAL Move the selected text to Apostrophe quote." })
---]]
 
 
 -- VISUAL BLOCK LINE MANAGEMENT

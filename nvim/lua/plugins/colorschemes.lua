@@ -13,7 +13,7 @@ return {
     lazy = true,
     opts = {
       flavour = "mocha",
-      term_colors = true,
+      term_colors = false,
       transparent_background = false,
       styles = {
         comments = {},
@@ -48,4 +48,8 @@ return {
       }
     }
   },
+  {
+    "rebelot/kanagawa.nvim",
+    lazy = true,
+  }
 }

@@ -8,7 +8,12 @@ return {
       "nvim-tree/nvim-web-devicons",
     },
     opts = {
-      sort_by = "case_sensitive",
+      sort = {
+        sorter = "case_sensitive",
+      },
+      view = {
+        width = "25%"
+      },
       renderer = {
         group_empty = true,
       },
@@ -16,6 +21,9 @@ return {
         dotfiles = true,
       },
     },
+    keys = {
+      { "<leader>t", ":NvimTreeToggle<CR>", desc = "[NvimTree] Toggle the NvimTree Buffer." },
+    }
   },
   { "nvim-telescope/telescope.nvim",
     tag = "0.1.5",
@@ -104,6 +112,43 @@ return {
         -- don't replace the (KEYWORDS) placeholder
         pattern = [[\b(KEYWORDS):]],   -- ripgrep regex
         -- pattern = [[\b(KEYWORDS)\b]], -- match without the extra colon. You'll likely get false positives
+      },
+    },
+  },
+  {
+    "folke/trouble.nvim",
+    opts = {},
+    cmd = "Trouble",
+    keys = {
+      {
+        "<leader>xx",
+        "<cmd>Trouble diagnostics toggle<cr>",
+        desc = "TROUBLE-NVIM Diagnostics (Trouble)",
+      },
+      {
+        "<leader>xX",
+        "<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
+        desc = "TROUBLE-NVIM Buffer Diagnostics (Trouble)",
+      },
+      {
+        "<leader>cs",
+        "<cmd>Trouble symbols toggle focus=false<cr>",
+        desc = "TROUBLE-NVIM Symbols (Trouble)",
+      },
+      {
+        "<leader>cl",
+        "<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
+        desc = "TROUBLE-NVIM LSP Definitions / references / ... (Trouble)",
+      },
+      {
+        "<leader>xL",
+        "<cmd>Trouble loclist toggle<cr>",
+        desc = "TROUBLE-NVIM Location List (Trouble)",
+      },
+      {
+        "<leader>xQ",
+        "<cmd>Trouble qflist toggle<cr>",
+        desc = "TROUBLE-NVIM Quickfix List (Trouble)",
       },
     },
   }

@@ -16,7 +16,7 @@ return {
           ensure_installed = {
             "lua_ls",
             "jdtls",
-            "tsserver",
+            -- "ts_ls",
             "gradle_ls",
             "gopls",
             "pylsp",

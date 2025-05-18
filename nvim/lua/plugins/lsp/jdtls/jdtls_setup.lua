@@ -8,7 +8,10 @@ function M.setup()
   local root_dir = jdtls_setup.find_root(root_markers)
 
   local project_name = vim.fn.fnamemodify(root_dir, ":p:h:t")
-  local workspace_dir = home .. "/.cache/jdtls/workspace" .. project_name
+  local workspace_dir = home .. "/.cache/jdtls/workspace/" .. project_name
+
+  -- print("Project Name: " .. project_name)
+  -- print("Workspace dir: " .. workspace_dir)
 
   local mason_package_path = home .. "/.local/share/nvim/mason/packages/"
 
@@ -21,6 +24,7 @@ function M.setup()
 
   local on_attach = require("plugins.lsp.keymaps")
 
+  --[[
   local capabilities = {
     workspace = {
       configuration = true
@@ -33,7 +37,28 @@ function M.setup()
       }
     }
   }
+  --]]
+  local function buildCapabilities()
+    local has_cmp, cmp = pcall(require, "cmp_nvim_lsp")
 
+    return vim.tbl_deep_extend(
+      "force",
+      {
+        workspace = {
+          configuration = true
+        },
+        textDocument = {
+          completion = {
+            completionItem = {
+              snippetSupport = true
+            }
+          }
+        }
+      },
+      has_cmp and cmp.default_capabilities() or {}
+    )
+  end
+  local capabilities = buildCapabilities()
   local config = {
     flags = {
       allow_incremental_sync = true,

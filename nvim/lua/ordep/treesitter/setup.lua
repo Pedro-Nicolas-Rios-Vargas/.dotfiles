@@ -10,6 +10,7 @@ function M.setup()
     ensure_installed = {
       "c",
       "lua",
+      "luadoc",
       "vim",
       "vimdoc",
       "java",
