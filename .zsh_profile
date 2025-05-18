@@ -1,0 +1,62 @@
+# environment vars
+#   term vars
+export AUTO_TERMCOLOR_ACTIVE=0
+#   golang
+export PATH=$PATH:/usr/local/go/bin
+export PATH=$PATH:/$HOME/go/bin
+
+# Haskell
+export PATH=$PATH:$HLS_HOME/bin
+export PATH=$PATH:$GHC_HOME/bin
+
+# {{{ kitty term
+export KITTY_HOME=$HOME/.local/kitty.app
+# Kitty CTM
+export PATH=$PATH:$HOME/dev/bash/
+# export PATH=$PATH:$KITTY_HOME/bin
+export PATH=$PATH:$HOME/.local/bin/
+# }}}
+
+# {{{ LSP
+# export PATH=$PATH:$HOME/repos/lua-language-server/bin
+
+# JAVA LS
+# export JDTLS_HOME=$HOME/repos/jdtls
+# export PATH=$PATH:$JDTLS_HOME/bin
+
+# HASKELL LS
+# export HLS_HOME=$HOME/.ghcup/hls/2.0.0.0
+# export GHC_HOME=$HOME/.ghcup/ghc/9.2.7
+
+# Gradle LS
+# export PATH=$PATH:$HOME/repos/vscode-gradle/gradle-language-server/build/install/gradle-language-server/bin
+
+# }}}
+
+# SGC PROJECT
+export SGC_PROJECT=$HOME/dev/ITCG/residencias
+
+# Aliases...
+alias py=python3
+alias gobck="source backend_env_start.sh"
+alias gofrn="source /home/ordep/dev/bash/frontend_env_start.sh"
+alias icat="kitty +kitten icat"
+# alias haskell-language-server-wrapper="haskell-language-server-wrapper-2.0.0.0"
+# alias haskell-language-server-9.2.7="haskell-language-server-9.2.7\~2.0.0.0"
+# alias haskell-language-server="haskell-language-server-9.2.7\~2.0.0.0"
+alias terco="$HOME/dev/bash/LBCS.sh"
+alias shfterco="source $HOME/dev/bash/change_flag_termcolor.sh"
+alias gradlep="$HOME/dev/bash/build_gradle_project_build/script.sh"
+
+source $HOME/dev/bash/LBCS.sh
+
+echo $KITTY_TAB_TITLE
+source $HOME/dev/bash/kitty_tab_scripts/tabs_path_scripts.sh
+rcvr-lp
+
+# ZSH-Colorize plugin
+ZSH_COLORIZE_TOOL=pygmentize
+
+ZSH_COLORIZE_STYLE="colorful"
+# In case that need to use golang-chroma package uncomment the line below
+# ZSH_COLORIZE_CHROMA_FORMATTER=terminal256

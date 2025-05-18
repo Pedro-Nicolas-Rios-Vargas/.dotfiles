@@ -70,44 +70,12 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git colored-man-pages colorize zsh-interactive-cd zsh-syntax-highlighting zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
-
-
-# Aliases...
-alias py=python3
-alias gobck="source backend_env_start.sh"
-alias gofrn="source /home/ordep/dev/bash/frontend_env_start.sh"
-alias icat="kitty +kitten icat"
-
-# Environment vars...
-export PATH=$PATH:/usr/local/go/bin
-
-#   golang vars...
-export PATH=$PATH:/usr/local/go/bin
-
-#   kitty term vars...
-export KITTY_HOME=$HOME/.local/kitty.app
-# export PATH=$PATH:$KITTY_HOME/bin
-
-export PATH=$PATH:$HOME/.local/bin/
-
-#   LSP vars...
-export PATH=$PATH:$HOME/repos/lua-language-server/bin
-
-# JAVA LS
-export JDTLS_HOME=$HOME/repos/jdtls
-export PATH=$PATH:$JDTLS_HOME/bin
-
-# SGC PROJECT
-export SGC_PROJECT=$HOME/dev/ITCG/residencias
-
-# Kitty CTM
-export PATH=$PATH:$HOME/dev/bash/
-
+source ~/.zsh_profile
 
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -143,3 +111,7 @@ export NVM_DIR="$HOME/.nvm"
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+[ -f "/home/ordep/.ghcup/env" ] && source "/home/ordep/.ghcup/env" # ghcup-env
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
