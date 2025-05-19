@@ -2,8 +2,8 @@
 
 [[ ! -d ~/.config ]] && mkdir ~/.config
 
-cp nvim ~/.config/
-cp kitty ~/.config/
+cp -r nvim ~/.config/
+cp -r kitty ~/.config/
 cp .zsh_profile ~/
 cp .zshrc ~/
 cp .gitconfig ~/
