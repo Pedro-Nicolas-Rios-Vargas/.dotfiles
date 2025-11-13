@@ -7,7 +7,12 @@ return {
       {
         "williamboman/mason.nvim",
         config = function (_)
-          require("mason").setup()
+          require("mason").setup({
+            registries = {
+              "github:mason-org/mason-registry",
+              "github:Crashdummyy/mason-registry"
+            }
+          })
         end
       },
       {
@@ -24,9 +29,15 @@ return {
             "cssls",    -- This four lsp's use the same resource 
             "jsonls",   -- hrsh7th/vscode-langservers-extracted
             "eslint",   --
+            "roslyn",
           },
         },
       },
+      {
+        "seblyng/roslyn.nvim"
+        ---@module 'roslyn.config'
+        ---@type RoslynNvimConfig
+      }
     },
     opts = {
       on_init = function (client)
@@ -43,37 +54,44 @@ return {
         gopls = true,
         gradle_ls = true,
         eslint = false,
+        roslyn = true,
         lua_ls = {
           on_init = function (client)
             print("lua_ls init...")
-            local path = client.workspace_folders[1].name
-            if not vim.uv.fs_stat(path .. '/.luarc.json') and not vim.uv.fs_stat(path .. '/.luarc.jsonc') then
-              client.config.settings = vim.tbl_deep_extend(
-                "force",
-                client.config.settings, {
-                  Lua = {
-                    runtime = {
-                      -- default for ls lua neovim version
-                      version = 'LuaJIT',
-                      -- Help in the search/loading of files when 'require' is
-                      -- used
-                    },
-                    diagnostics = {
-                      globals = { 'vim' },
-                    },
-                    workspace = {
-                      checkThirdParty = false,
-                      library = {
-                        vim.env.VIMRUNTIME,
-                      },
-                    },
-                  },
-                }
-              )
-              client.notify("workspace/didChangeConfiguration", { settings = client.config.settings })
+            if client.workspace_folders then
+              local path = client.workspace_folders[1].name
+              if path ~= vim.fn.stdpath('config')
+                 and (vim.uv.fs_stat(path .. '/.luarc.json') or vim.uv.fs_stat(path .. '/.luarc.jsonc')) then
+
+                 return
+              end
             end
-            return true
+
+            client.config.settings.Lua = vim.tbl_deep_extend(
+              'force',
+              client.config.settings.Lua, {
+                runtime = {
+                  -- default for ls lua neovim version
+                  version = 'LuaJIT'
+                  -- Help in the search/loading of files when 'require' is
+                  -- used
+                },
+                diagnostics = {
+                  globals = { 'vim' }
+                },
+                workspace = {
+                  checkThirdParty = false,
+                  library = {
+                    vim.env.VIMRUNTIME
+                  }
+                }
+              }
+            )
+            client:notify("workspace/didChangeConfiguration", { settings = client.config.settings })
           end,
+          settings = {
+            Lua = {}
+          }
         },
         tsserver = {
             cmd = { "typescript-language-server", "--stdio" },
@@ -129,12 +147,6 @@ return {
           config = {}
         end
 
-        --[[
-        if server == "lua_ls" then
-        custom_init = config.on_init
-        end
-        --]]
-
         config = vim.tbl_deep_extend("force", {
           on_init = custom_init,
           on_attach = custom_attach,
@@ -144,7 +156,7 @@ return {
           },
         }, config)
 
-        require("lspconfig")[server].setup(config)
+        vim.lsp.config(server, config)
       end
 
       for server, config in pairs(servers) do

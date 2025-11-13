@@ -25,6 +25,7 @@ function M.setup()
       "markdown_inline",
       "mermaid",
       "json",
+      "c_sharp"
     },
     sync_install = true,
     auto_install = true,

@@ -1,7 +1,10 @@
 return {
   {
-    "gruvbox-community/gruvbox",
-    lazy = true,
+    "ellisonleao/gruvbox.nvim",
+    priority = 1000,
+    opts = {
+      contrast = "1"
+    },
   },
   {
     "folke/tokyonight.nvim",

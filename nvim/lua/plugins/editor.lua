@@ -26,7 +26,7 @@ return {
     }
   },
   { "nvim-telescope/telescope.nvim",
-    tag = "0.1.5",
+    tag = "v0.1.9",
     dependencies = {
       'nvim-lua/plenary.nvim',
     },
@@ -34,6 +34,14 @@ return {
       require("ordep.telescope.setup")
       require("ordep.telescope.keys")
     end,
+  },
+  { "nvim-telescope/telescope-fzf-native.nvim",
+    build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release --target install',
+    dependencies = {
+      "nvim-telescope/telescope.nvim"
+    }
+
+
   },
   { "folke/todo-comments.nvim",
     opts = {
@@ -151,5 +159,26 @@ return {
         desc = "TROUBLE-NVIM Quickfix List (Trouble)",
       },
     },
+  },
+  {
+    "rachartier/tiny-inline-diagnostic.nvim",
+    event = 'VeryLazy',
+    priority = 1000,
+    config = function ()
+      require("tiny-inline-diagnostic").setup({
+        options = {
+          show_source = {
+            enabled = true
+          },
+          add_message = {
+            display_count = true,
+          },
+          multilines = {
+            enabled = true
+          },
+        }
+      })
+      vim.diagnostic.config({ virtual_lines = false }) -- Disable Neovim's default virtual text
+    end
   }
 }

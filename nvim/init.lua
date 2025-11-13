@@ -1,6 +1,4 @@
 vim.g.mapleader = " "
--- gruvbox global vars
-vim.g.gruvbox_contrast_dark = "hard"
 
 -- Assign the copy/paste functions to wl-clipboard
 vim.g.clipboard = {
@@ -37,11 +35,12 @@ vim.cmd ('so ~/.config/nvim/vim_scripts/splitjoin_script.vim')
 
 -- load augroups
 require("ordep.groups")
+-- Create path winbar
+require("plugins.custom.winbar").setup()
 
+vim.o.background = "dark"
 vim.cmd [[ colorscheme gruvbox ]]
 
 -- vim.cmd [[ colorscheme catppuccin ]]
-
--- require "ordep.autoscope"
 
 -- require "ordep.test"

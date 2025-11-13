@@ -8,4 +8,5 @@ mapper('n', "<leader>fh",  builtin.help_tags, { desc = "[Telescope] Open Telesco
 mapper('n', "<leader>fr",  builtin.live_grep, { desc = "[Telescope] Open Telescope window for find words in text files using ripgrep."  } )
 mapper('n', "<leader>fc",  builtin.colorscheme, { desc = "[Telescope] Open Telescope window showing all colorschemes installed."  } )
 mapper('n', "<leader>kk",  builtin.keymaps, { desc = "[Telescope] Open Telescope window showing all registered keymaps."  } )
+mapper({ 'n', 'v' }, "<leader>fs",  builtin.grep_string, { desc = "[Telescope] Open Telescope window showing string under the cursor or selection."  } )
 
