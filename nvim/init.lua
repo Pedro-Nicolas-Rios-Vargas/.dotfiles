@@ -33,14 +33,15 @@ require('lazy').setup("plugins")
 -- vim.cmd ('so ~/.config/nvim/vim_scripts/pluggins_vim-plug.vim')
 vim.cmd ('so ~/.config/nvim/vim_scripts/splitjoin_script.vim')
 
+--vim.o.background = "dark"
+--vim.cmd [[ colorscheme gruvbox ]]
+
+vim.cmd [[ colorscheme catppuccin ]]
+
 -- load augroups
 require("ordep.groups")
 -- Create path winbar
 require("plugins.custom.winbar").setup()
 
-vim.o.background = "dark"
-vim.cmd [[ colorscheme gruvbox ]]
-
--- vim.cmd [[ colorscheme catppuccin ]]
 
 -- require "ordep.test"

@@ -5,12 +5,12 @@
 local M = {}
 
 local themes = {
-  catppuccin = require("plugins.custom.themes.catppuccin.theme"),
+  ["catppuccin-mocha"] = require("plugins.custom.themes.catppuccin.theme"),
   gruvbox = require("plugins.custom.themes.gruvbox.theme"),
   default = require("plugins.custom.themes.default.theme"),
 }
 
-M.current = "gruvbox"
+M.current = vim.g.colors_name
 
 function M.set_theme(name)
   if not themes[name] then
