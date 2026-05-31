@@ -3,7 +3,7 @@
 export AUTO_TERMCOLOR_ACTIVE=0
 #   golang
 export PATH=$PATH:/usr/local/go/bin
-export PATH=$PATH:/$HOME/go/bin
+export PATH=$PATH:$HOME/go/bin
 
 # Haskell
 export PATH=$PATH:$HLS_HOME/bin
@@ -16,9 +16,11 @@ export PATH=$PATH:$HOME/dev/bash/
 # export PATH=$PATH:$KITTY_HOME/bin
 export PATH=$PATH:$HOME/.local/bin/
 # }}}
+# JetBrains bin dir
+export PATH="$PATH:$HOME/JetBrains/IdeaIJ/idea-IC-251.25410.129/bin"
 
 # {{{ LSP
-# export PATH=$PATH:$HOME/repos/lua-language-server/bin
+export PATH=$PATH:$HOME/repos/lua-language-server/bin
 
 # JAVA LS
 # export JDTLS_HOME=$HOME/repos/jdtls
@@ -44,15 +46,19 @@ alias icat="kitty +kitten icat"
 # alias haskell-language-server-wrapper="haskell-language-server-wrapper-2.0.0.0"
 # alias haskell-language-server-9.2.7="haskell-language-server-9.2.7\~2.0.0.0"
 # alias haskell-language-server="haskell-language-server-9.2.7\~2.0.0.0"
-alias terco="$HOME/dev/bash/LBCS.sh"
-alias shfterco="source $HOME/dev/bash/change_flag_termcolor.sh"
-alias gradlep="$HOME/dev/bash/build_gradle_project_build/script.sh"
 
-source $HOME/dev/bash/LBCS.sh
-
-echo $KITTY_TAB_TITLE
-source $HOME/dev/bash/kitty_tab_scripts/tabs_path_scripts.sh
-rcvr-lp
+# Lineas comentadas porque falta installar scripts de bash y python para le
+# entorno
+#
+# alias terco="$HOME/dev/bash/LBCS.sh"
+# alias shfterco="source $HOME/dev/bash/change_flag_termcolor.sh"
+# alias gradlep="$HOME/dev/bash/build_gradle_project_build/script.sh"
+# 
+# source $HOME/dev/bash/LBCS.sh
+# 
+# echo $KITTY_TAB_TITLE
+# source $HOME/dev/bash/kitty_tab_scripts/tabs_path_scripts.sh
+# rcvr-lp
 
 # ZSH-Colorize plugin
 ZSH_COLORIZE_TOOL=pygmentize
@@ -60,3 +66,9 @@ ZSH_COLORIZE_TOOL=pygmentize
 ZSH_COLORIZE_STYLE="colorful"
 # In case that need to use golang-chroma package uncomment the line below
 # ZSH_COLORIZE_CHROMA_FORMATTER=terminal256
+#
+# dotnet temporal while Microshit solves they package issues
+#export DOTNET_ROOT=~/.dotnet/net_*
+#export PATH=$PATH:~/.dotnet/net_9.0:~/.dotnet/net_10.0
+#alias dotnet9=~/.dotnet/net_9.0/dotnet
+#alias dotnet10=~/.dotnet/net_10.0/dotnet
